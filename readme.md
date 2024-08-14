@@ -1,4 +1,4 @@
-# Smooth and interpretable quantile distributed lag models
+# Smooth and shape-constrained quantile distributed lag model
 
 ## Overview
 This repository contains two R scripts for fitting models as described in the simulation section of the associated paper. The scripts handle different types of model fitting and consider the two error term distributions discussed in the paper.

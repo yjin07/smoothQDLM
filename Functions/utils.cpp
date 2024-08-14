@@ -120,9 +120,9 @@ arma::mat DDmat(int p) {
     arma::mat res = arma::zeros<arma::mat>(p - 2, p);
 
     for (int i = 0; i < p - 2; ++i) {
-        res(i, i) = -1;
-        res(i, i + 1) = 2;
-        res(i, i + 2) = -1;
+        res(i, i) = 1;
+        res(i, i + 1) = -2;
+        res(i, i + 2) = 1;
     }
 
     return res;
@@ -207,7 +207,7 @@ Rcpp::List nearConcaveCpp(const arma::vec& y, double lambda,
                         bool quiet = true) {
     
     int T = y.n_elem;
-    arma::mat D = -DDmat(T);
+    arma::mat D = DDmat(T);
     arma::mat DtD = D.t() * D;
     arma::mat Q = arma::inv(arma::eye(T, T) + rho * DtD);
     
