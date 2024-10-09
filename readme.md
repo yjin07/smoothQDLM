@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 # Smooth and shape-constrained quantile distributed lag model
+=======
+# Smooth and shape-constrained quantile distributed lag models
+>>>>>>> a4bff08 (Refactor readme.md to update project description and provide link to associated paper)
 
 ## Overview
-This repository contains two R scripts for fitting models as described in the simulation section of the associated paper. The scripts handle different types of model fitting and consider the two error term distributions discussed in the paper.
-
+This repository provides R scripts for fitting the models described in the simulation section of the paper, *Smooth and Shape-Constrained Quantile Distributed Lag Models* [[link to the paper]](https://arxiv.org/abs/2408.08450). The scripts cover different approaches to model fitting, taking into account the two error term distributions discussed in the paper.
 
 ## Scripts
 
