@@ -14,7 +14,7 @@ Both scripts accept command-line arguments for specifying the model and the erro
 
 ### Command-Line Arguments
 
-- `--model` or `-m`: Specifies the model to run. Allowed values are `A`, `B`, or `C`.
+- `--model` or `-m`: Specifies the model to run. Allowed values are `A`, `B`, `C` or `D`.
 - `--error` or `-e`: Specifies the error term distribution. Allowed values are `normal` or `t`.
 
 ### Running the Scripts
@@ -25,7 +25,7 @@ To run either script, use the following command format:
 Rscript script_name.R -m model -e error_distribution
 ```
 
-Replace `script_name.R` with `Main-v01.R` or `Main-v02.R` depending on the model type you want to fit. Replace `model` with `A`, `B`, or `C`, and error_distribution with `normal` or `t`.
+Replace `script_name.R` with `Main-v01.R` or `Main-v02.R` depending on the model type you want to fit. Replace `model` with `A`, `B`, `C` or `D`, and error_distribution with `normal` or `t`.
 
 ### Example
 Unimodal Model with Normal Error Distribution:
