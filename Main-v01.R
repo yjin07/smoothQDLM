@@ -9,8 +9,8 @@ option_list <- list(
 opt_parser <- OptionParser(option_list = option_list)
 opt <- parse_args(opt_parser)
 
-if (!opt$model %in% c("A", "B", "C")) {
-    stop("Invalid model. Choose from 'A', 'B', or 'C'.")
+if (!opt$model %in% c("A", "B", "C", "D")) {
+    stop("Invalid model. Choose from 'A', 'B', 'C' or 'D'.")
 }
 
 if (!opt$error %in% c("normal", "t")) {
@@ -37,6 +37,7 @@ num.expo <- 6
 p.all <- c(30, 30, 30, 30, 30, 30, 30)
 m.expo <- c(12, 15, 18, 17, 15, 13)
 p2 <- 5
+constants <- c(2, -2, 3, -1.5, -3.5, 2.5)
 
 SIGMA = 1e-4
 
@@ -45,6 +46,8 @@ gamma <- rep(1, p2)
 # ! ------------------
 # ! Generate beta
 # ! ------------------
+beta.all <- list()
+
 if (opt$model == "A") {
     for (i in 1:num.expo) {
         beta.all[[i]] <- generate_sequence3(5, p.all[i], m.expo[i])
@@ -52,9 +55,17 @@ if (opt$model == "A") {
 } else if (opt$model == "B") {
     for (i in 1:num.expo) {
         beta.all[[i]] <- generate_sequence3s(5, p.all[i], m.expo[i], 0.5)
+    }
 } else if (opt$model == "C") {
     for (i in 1:num.expo) {
         beta.all[[i]] <- generate_parabolic_sequence(5, p.all[i], m.expo[i])
+    }
+} else if (opt$model == "D") {
+    for (i in 1:3) {
+        beta.all[[i]] <- rep(constants[i], p.all[i])
+    }
+    for (i in 4:6) {
+        beta.all[[i]] <- generate_sequence3(5, p.all[i], m.expo[i])
     }
 }
 

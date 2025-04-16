@@ -167,35 +167,6 @@ double eval_obj_concave(const arma::vec& y,
 }
 
 
-double prox(double x, double alpha, double t) {
-    if (x > t / alpha) {
-        return x - t / alpha;
-    } else if (x < (t - 1) / alpha) {
-        return x - (t - 1) / alpha;
-    } else {
-        return 0;
-    }
-}
-
-// [[Rcpp::export]]
-arma::vec rr_update(const arma::vec& y, 
-                    const arma::mat& X, 
-                    const arma::mat& Z, 
-                    const arma::vec& beta, 
-                    const arma::vec& gamma, 
-                    const arma::vec& u, 
-                    double sigma, 
-                    double tau) {
-    
-    int n = y.n_elem;
-    arma::vec residuals = y - X * beta - Z * gamma + u / sigma;
-
-    arma::vec res = arma::zeros(n);
-    for (int i = 0; i < n; ++i) {
-        res[i] = prox(residuals[i], n * sigma, tau);
-    }
-    return res;
-}
 
 
 // [[Rcpp::export]]
